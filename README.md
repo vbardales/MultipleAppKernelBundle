@@ -116,3 +116,11 @@ class AppKernel extends BaseKernel
 }
 
 ```
+
+# Config files
+
+In project folders, common resources may be included like :
+      
+``` php
+    - { resource: "../../commons/config/config.yml" }
+```
