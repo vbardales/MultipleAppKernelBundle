@@ -21,7 +21,7 @@ Or using deps file
 Or using composer.json
 
 ```
-    "vbardales/multiple-app-kernel-bundle": "1.0.2",
+    "vbardales/multiple-app-kernel-bundle": "dev-master",
 ```
 
 Register it in the `autoload.php` file:
