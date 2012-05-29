@@ -105,6 +105,8 @@ class AppKernel extends BaseKernel
         );
 
         // ...
+        
+        return $bundles;
     }
 
     public function registerContainerConfiguration(LoaderInterface $loader)
