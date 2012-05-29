@@ -16,7 +16,7 @@
         }
     ],
     "require": {
-        "symfony/symfony": "*"
+        "symfony/symfony": "2.*"
     },
     "target-dir": "MultipleApp/KernelBundle",
     "autoload": {
