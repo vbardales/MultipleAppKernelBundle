@@ -98,4 +98,25 @@ abstract class Kernel extends BaseKernel
 
         throw new \InvalidArgumentException(sprintf('Unable to find file "%s".', $name));
     }
+
+    /**
+     * Register specific bundles for each app
+     * @return array Registered specific bundles
+     */
+    abstract public function registerAppBundles();
+
+    /**
+     * Register common bundles for all apps
+     * @return array Registered common bundles
+     */
+    abstract public function registerCommonsBundles();
+
+    /**
+     * (non-PHPdoc)
+     * @see \Symfony\Component\HttpKernel\KernelInterface::registerBundles()
+     */
+    public function registerBundles()
+    {
+        return array_merge($this->registerCommonsBundles(), $this->registerAppBundles());
+    }
 }
