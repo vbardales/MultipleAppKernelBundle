@@ -62,6 +62,8 @@ abstract class BaseKernel extends Kernel
         );
         
         // ...
+        
+        return $bundles;
     }
 }
 ```
