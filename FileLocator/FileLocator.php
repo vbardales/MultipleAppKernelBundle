@@ -16,7 +16,7 @@ class FileLocator extends BaseFileLocator
      * Constructor.
      *
      * @param KernelInterface $kernel A KernelInterface instance
-     * @param string          $paths   An array of paths where to look for resources
+     * @param string          $paths  An array of paths where to look for resources
      */
     public function __construct(KernelInterface $kernel, array $paths = array())
     {
