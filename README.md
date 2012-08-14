@@ -56,13 +56,13 @@ abstract class BaseKernel extends Kernel
     {
         $bundles = array(
             // ...
-            
+
             // Multiple App
             new MultipleApp\KernelBundle\MultipleAppKernelBundle(),
         );
-        
+
         // ...
-        
+
         return $bundles;
     }
 }
@@ -78,7 +78,7 @@ Apps files are located in each app folder. Each app folder (like `/backend`) sho
 #!/usr/bin/env php
 <?php
     // ...
-    
+
     require_once __DIR__.'/../commons/bootstrap.php.cache';
     require_once __DIR__.'/AppKernel.php';
 
@@ -105,7 +105,7 @@ class AppKernel extends BaseKernel
         );
 
         // ...
-        
+
         return $bundles;
     }
 
@@ -120,7 +120,22 @@ class AppKernel extends BaseKernel
 # Config files
 
 In project folders, common resources may be included like :
-      
+
 ``` php
     - { resource: "../../commons/config/config.yml" }
+```
+
+# Generate multi apps routes
+
+``` php
+$this->get('multiapp.routing_generator')
+     // generate($appName, $name, $parameters = array(), $absolute = false)
+     ->generate('frontend', 'myroute', array('page' => $Page, '_locale' => 'fr'), true);
+```
+
+For absolute url define in parameters.yml :
+
+```
+parameters:
+    multiapp.frontend.base_url: http://example.com
 ```
