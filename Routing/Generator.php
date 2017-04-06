@@ -55,10 +55,11 @@ class Generator
     protected function getAppUrlGenerator($appName)
     {
         // Load the route generator for app
-        $kernelName = '/'.$this->container->getParameter('kernel.name').'/';
-        $slashedAppName = '/'.$appName.'/';
-        $cache_dir = str_replace($kernelName, $slashedAppName, $this->container->getParameter('kernel.cache_dir'));
-        $generatorClassName = $appName.ucfirst($this->container->getParameter('kernel.environment')).'UrlGenerator';
+        $kernelName = DIRECTORY_SEPARATOR.$this->container->getParameter('kernel.name');
+
+        $cache_dir = str_replace($kernelName.DIRECTORY_SEPARATOR, DIRECTORY_SEPARATOR.$appName.DIRECTORY_SEPARATOR, $this->container->getParameter('kernel.cache_dir'));
+        $generatorClassName = str_replace($kernelName, $appName, DIRECTORY_SEPARATOR.$this->container->getParameter('router.options.generator.cache_class'));
+
         require_once $cache_dir.DIRECTORY_SEPARATOR.$generatorClassName.'.php';
 
         return new $generatorClassName($this->container->get('router.request_context'));
